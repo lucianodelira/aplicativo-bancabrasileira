@@ -3,20 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // Libera automaticamente o acesso ao sistema de palpites
   localStorage.setItem('privilegeAccess', 'true');
 
-  // Se você tiver botões que chamam openPaymentModal, redefine eles para não fazer nada
+  // Redefine openPaymentModal para não fazer nada
   window.openPaymentModal = function () {
     console.log("Acesso já liberado. Pagamento desativado.");
   };
 
-  // Se quiser esconder o botão de pagamento da interface, pode fazer isso aqui:
-  const btnPagamento = document.querySelector('#botaoPagamento'); // Coloque o ID correto do botão
+  // Remove botão de pagamento se existir
+  const btnPagamento = document.querySelector('#botaoPagamento'); // verifique se esse ID está certo
   if (btnPagamento) {
     btnPagamento.style.display = 'none';
   }
 
-  // Se ainda tiver o modal do createModal sendo chamado, podemos também desativar ele:
+  // Redefine createModal para evitar que o modal apareça mesmo que seja chamado
   window.createModal = function () {
     console.log("Modal de venda desativado.");
+    localStorage.setItem('privilegeAccess', 'true');
   };
 });
 </script>
