@@ -12,7 +12,7 @@ body, html {
 
 /* Cabeçalho */
 header {
-    background-color: #FF8C00;
+    background-color: #006400;
     color: white;
     padding: 15px;
     position: relative; /* Para posicionamento do menu expandido */
@@ -989,4 +989,5 @@ select:hover {
     color: #4caf50;
     font-weight: bold;
 }
+
 
