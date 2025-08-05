@@ -2,21 +2,18 @@ document.addEventListener('DOMContentLoaded', function () {
     // Seleção de elementos do DOM
     const resultadoIcon = document.getElementById('resultadoIcon');
     const palpiteIcon = document.getElementById('palpiteIcon');
-    const jogarIcon = document.getElementById('jogarIcon');
+    
     const compartilharIcon = document.getElementById('compartilharIcon');
     const hamburgerMenu = document.getElementById('hamburgerMenu');
     const expandMenu = document.getElementById('expandMenu');
     const contatoLink = document.getElementById('contatoLink');
     const instalarAppLink = document.getElementById('instalarAppLink');
-const minasIcon = document.getElementById('minasIcon');
-const minasSection = document.getElementById('minasSection');
-const minaIcon = document.getElementById('minaIcon');
-const minaSection = document.getElementById('minaSection');
+
 
     const selecionarNomeSection = document.getElementById('selecionarNome');
     const exibirResultadoSection = document.getElementById('exibirResultado');
     const modoPalpiteSection = document.getElementById('modoPalpite');
-    const modoJogarSection = document.getElementById('modoJogar');
+    
     const fecharIframeBtn = document.getElementById('fecharIframe'); // Novo botão de fechar
 
     const menuLoteriasDiv = document.getElementById('menuLoterias');
@@ -49,7 +46,7 @@ const minaSection = document.getElementById('minaSection');
         selecionarNomeSection.classList.add('hidden');
         exibirResultadoSection.classList.add('hidden');
         modoPalpiteSection.classList.add('hidden');
-        modoJogarSection.classList.add('hidden');
+        
         comoFuncionaSection.classList.add('hidden');
         politicasPrivacidadeSection.classList.add('hidden');
         termosServicoSection.classList.add('hidden');
@@ -225,18 +222,9 @@ const minaSection = document.getElementById('minaSection');
         populateDropdownPalpite();
     });
 
-    // Função para lidar com o clique no ícone 'Jogar'
-    jogarIcon.addEventListener('click', function (event) {
-        event.preventDefault();
-        currentMode = 'Jogar';
-        setActiveIcon(jogarIcon);
+    
 
-        // Define o src da iframe para carregar o site externo e exibe em tela cheia
-        jogarIframe.src = 'https://app.tigersclub.vip/pr/cmDAwXiS';
-        modoJogarSection.style.display = 'block'; // Exibe a seção com a iframe em tela cheia
-        fecharIframeBtn.classList.remove('hidden'); // Mostra o botão de fechar
-    });
-
+       
     // Função para lidar com o clique no botão 'X' (fechar iframe)
     fecharIframeBtn.addEventListener('click', function () {
         window.location.reload(); // Recarrega a página completamente
@@ -250,7 +238,7 @@ const minaSection = document.getElementById('minaSection');
 
     // Função para definir o ícone ativo
     function setActiveIcon(activeIcon) {
-        [minasIcon, minaIcon, resultadoIcon, palpiteIcon, jogarIcon].forEach(icon => {
+        [resultadoIcon, palpiteIcon].forEach(icon => {
             icon.classList.remove('active');
         });
         activeIcon.classList.add('active');
@@ -311,29 +299,17 @@ function hideAllSections() {
     selecionarNomeSection.classList.add('hidden');
     exibirResultadoSection.classList.add('hidden');
     modoPalpiteSection.classList.add('hidden');
-    modoJogarSection.classList.add('hidden');
+    
     comoFuncionaSection.classList.add('hidden');
     politicasPrivacidadeSection.classList.add('hidden');
     termosServicoSection.classList.add('hidden');
     sobreSection.classList.add('hidden');
-    minasSection.classList.add('hidden');
-    minaSection.classList.add('hidden'); // Nova seção Mina
+    
 }
 
 
 
-minasIcon.addEventListener('click', function (event) {
-    event.preventDefault();
-    setActiveIcon(minasIcon);
-    showSection(minasSection);
-});
 
-
-minaIcon.addEventListener('click', function (event) {
-    event.preventDefault();
-    setActiveIcon(minaIcon);
-    showSection(minaSection);
-});
 
 
 // Função para exibir as frases nas abas em formato de cards
@@ -807,7 +783,7 @@ window.addEventListener('scroll', fecharMenuAoRolar);
     });
 
 function setActiveIcon(activeIcon) {
-    [minasIcon, minaIcon, resultadoIcon, palpiteIcon, jogarIcon, compartilharIcon].forEach(icon => {
+    [resultadoIcon, palpiteIcon, compartilharIcon].forEach(icon => {
         icon.classList.remove('active');
     });
     activeIcon.classList.add('active');
